@@ -7,7 +7,9 @@ class home extends React.Component{
     constructor(props){
          super();
          this.state={
-             age:props.age
+             age:props.age,
+             name:props.name,
+             homeLink:"Change Link"
          } 
       }
     
@@ -16,9 +18,45 @@ class home extends React.Component{
         this.setState({
             age : this.state.age + 3
         });
+}
 
 
-        
+    changeNameOfHeader(){
+        this.props.changeLink(this.state.homeLink);
+    }
+
+    onInputChange(event){
+       this.setState({
+           homeLink:event.target.value
+       });
+    }
+    
+
+
+
+    //Componet Lift Cycle
+
+    componentWillMount(){
+        console.log("componentWillMount");
+    }
+
+    componentDidMount(){
+        console.log("componentDidMount");
+    }
+
+    componentWillReceiveProps(nextProps){
+        console.log("componentWillReceiveProps",nextProps);
+    }
+
+    shouldComponentUpdate(nextProps,newState){
+        console.log("shouldComponentUpdate",nextProps,newState);
+        return true;
+    }
+    componentDidUpdate(preProps,preState){
+        console.log("componentDidUpdate",preProps,preState);
+    }
+    componentWillUnmount(){
+        console.log("componentWillUnmount");
     }
 
 
@@ -70,8 +108,9 @@ class home extends React.Component{
             <div  class="left" style={letterStyle}>
                 <h1>Home</h1>
 
-                <p> {this.props.user.hobby}</p>
-                <p> {this.props.user.name}</p>
+                <p> {this.props.name}</p>
+                <p> {this.props.age}</p>
+             
 
 
                 <h4>Hobbies</h4>
@@ -92,6 +131,17 @@ class home extends React.Component{
                    </button>
                    <button style={style} onClick={() => this.props.greet()}>
                    Me
+                   </button>
+
+
+                   <br/>
+                   <br/>
+                   <hr/>
+
+                   <input value={this.state.homeLink} onChange={this.onInputChange.bind(this)}></input>
+
+                   <button style={style} onClick={this.changeNameOfHeader.bind(this)}>
+                     Change Header Link
                    </button>
 
                    </div>

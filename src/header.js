@@ -3,6 +3,10 @@ import logo from './logo.svg';
 import './App.css';
 
 class Header extends React.Component{
+
+
+
+
     render(){
 
         const defaultStyle={
@@ -26,19 +30,22 @@ class Header extends React.Component{
 
         const childRight = {
             background:'green',
-            height: '100%',
+            height: '20%',
             width: '50%',
-            position: 'absolute',
+            position: 'none',
             right: '0',
             top: 0,
             textAlign:'justify',
-            letterSpacing: '3px'
+            letterSpacing: '3px',
+            width: '100%', 
+            textAlign:'center'
         }
 
         return(
 
-            <header style={defaultStyle}>
-                <div  style={childRight} >
+            <header class="container" style={childRight}>
+                        <h3>{this.props.title}</h3>
+                <div  float="right"  textAlign='right'>
                 <a>SignIn</a>
                 <a>Developer</a>
                 <a>Help</a>

@@ -7,9 +7,25 @@ import Home from './home';
 class App extends Component {
 
 
-  callFromHome(){
-    alert("Hi Parent")
+  constructor(){
+    super();
+    this.state={
+      title:"Home"
+    }
+    
+  }
+
+  callFromHome(props){
+
+    alert("Hi Parent"+props.age)
  };
+
+
+ changeHeaderName(newTitle){
+   this.setState({
+    title:newTitle
+ });
+ }
 
   render() {
 
@@ -33,8 +49,12 @@ class App extends Component {
     
     return (
       <div className="container">
-         <Header  style={style}/>
-        <Home name={"Sam"} age={27} user={user} greet={this.callFromHome}/>
+         <Header  style={style} title={this.state.title}/>
+        <Home name={"Sam"} 
+        age={27} user={user} 
+        greet={this.callFromHome}
+        changeLink={this.changeHeaderName.bind(this)}
+        />
         
       </div>
     );
