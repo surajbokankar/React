@@ -43,8 +43,8 @@ class Header extends React.Component{
 
         return(
 
-            <header class="container" style={childRight}>
-                        <h3>{this.props.title}</h3>
+            <header class="container">
+                       
                 <div  float="right"  textAlign='right'>
                 <a>SignIn</a>
                 <a>Developer</a>

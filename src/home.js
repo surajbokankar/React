@@ -33,34 +33,7 @@ class home extends React.Component{
     
 
 
-
-    //Componet Lift Cycle
-
-    componentWillMount(){
-        console.log("componentWillMount");
-    }
-
-    componentDidMount(){
-        console.log("componentDidMount");
-    }
-
-    componentWillReceiveProps(nextProps){
-        console.log("componentWillReceiveProps",nextProps);
-    }
-
-    shouldComponentUpdate(nextProps,newState){
-        console.log("shouldComponentUpdate",nextProps,newState);
-        return true;
-    }
-    componentDidUpdate(preProps,preState){
-        console.log("componentDidUpdate",preProps,preState);
-    }
-    componentWillUnmount(){
-        console.log("componentWillUnmount");
-    }
-
-
-    render(){
+render(){
         var style=  {
             "list-style-type": "none",
             fontSize: 20,
@@ -107,52 +80,7 @@ class home extends React.Component{
 
             <div  class="left" style={letterStyle}>
                 <h1>Home</h1>
-
-                <p> {this.props.name}</p>
-                <p> {this.props.age}</p>
-             
-
-
-                <h4>Hobbies</h4>
-                <div class="container">
-                    <ul style={style} >
-
-                     {this.props.user.hobbies.map((hobby)=>
-                                      <li>{hobby}</li>
-                                         )}
-</ul>
-
-                  <p>{this.state.age}</p>
-
-                   <div class="container" float="left">
-
-                   <button style={style} onClick={() => this.clickToIncrese()}>
-                   Click
-                   </button>
-                   <button style={style} onClick={() => this.props.greet()}>
-                   Me
-                   </button>
-
-
-                   <br/>
-                   <br/>
-                   <hr/>
-
-                   <input value={this.state.homeLink} onChange={this.onInputChange.bind(this)}></input>
-
-                   <button style={style} onClick={this.changeNameOfHeader.bind(this)}>
-                     Change Header Link
-                   </button>
-
-                   </div>
-
-                  
-
-                    </div>
-
-
-
-            </div>
+</div>
 
         );
     }
