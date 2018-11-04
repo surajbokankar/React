@@ -1,25 +1,41 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Header from './header';
+import Home from './home';
 
 class App extends Component {
+
+
+  callFromHome(){
+    alert("Hi Parent")
+ };
+
   render() {
+
+    var style=  {
+      "list-style-type": "none",
+      fontSize: 20,
+      textAlign: "left",
+      float:"left",
+      width: "40%"
+  }
+
+
+    var user=
+      {
+        name:"Sam",
+        hobbies:["Sports","Dance"]
+      }
+
+      
+      
+    
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="container">
+         <Header  style={style}/>
+        <Home name={"Sam"} age={27} user={user} greet={this.callFromHome}/>
+        
       </div>
     );
   }
