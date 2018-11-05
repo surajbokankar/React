@@ -22,12 +22,14 @@ render() {
       <Router>
       <div>
        
-       <h2>Welcomt to React Router Tutorial
-       <ul style={style}>
-         <li>Home</li>
-         <li>User</li>
-         </ul>
-         </h2>
+       <h2>Welcomt to React Router Tutorial</h2>
+       <div>
+       
+        <ul role="nav">
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/user">User</Link></li>
+        </ul>
+      </div>
          <Switch>
            <Route exact path="/"
            component={Home}
