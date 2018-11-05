@@ -7,6 +7,37 @@ import {BrowserRouter as Router,Switch,Route, Link } from 'react-router-dom';
 import User from './component/user';
 
 class App extends Component {
+
+
+  constructor(props){
+    super(props);
+    this.state={
+     email:props.email,
+     password:props.password,
+     onLoginClick:this.onLoginClick
+    };
+
+  }
+
+
+  onEmailChange(event){
+    this.setState({
+      email:event.target.email
+    });
+  }
+
+  onPasswordChange(event){
+    this.setState({
+      password:event.target.password
+    });
+  }
+
+  onLoginClick(event){
+    console.log("Values="+this.state.email+"Password="+this.state.password);
+    event.preventDefault();
+    
+  }
+
 render() {
 
     var style=  {
@@ -19,30 +50,34 @@ render() {
     
     return (
 
-      <Router>
-      <div>
-       
-       <h2>Welcomt to React Router Tutorial</h2>
-       <div>
-       
-        <ul role="nav">
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/user">User</Link></li>
-        </ul>
-      </div>
-         <Switch>
-           <Route exact path="/"
-           component={Home}
-           />
+      <div  class="container">
 
-           <Route exact path="/user" 
-           component={User}
-           />
-           </Switch>
+       <form>
+         
+         <label>Email</label>
+         <input  value={this.props.email}
+           onChange={this.onEmailChange.bind(this)
+         }/>
 
-      </div>
+         <br/>
 
-      </Router>
+         <label>Password</label>
+         <input  value={this.props.password}
+           onChange={this.onPasswordChange.bind(this)
+         }/>
+
+         <br/>
+
+
+         <button
+         value={this}
+         onClick={this.onLoginClick.bind(this)}
+         >Submit</button>
+
+
+         </form>
+ 
+        </div>
       
     );
   }
