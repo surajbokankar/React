@@ -14,8 +14,11 @@ class App extends Component {
     this.state={
      email:props.email,
      password:props.password,
-     onLoginClick:this.onLoginClick
-    };
+    onLoginClick:this.onLoginClick.bind(this)
+        };
+
+        
+
 
   }
 
@@ -33,8 +36,10 @@ class App extends Component {
   }
 
   onLoginClick(event){
-    console.log("Values="+this.state.email+"Password="+this.state.password);
+    
     event.preventDefault();
+    
+    console.log("Values="+event.target.email+"Password="+event.target.password);
     
   }
 
@@ -50,9 +55,9 @@ render() {
     
     return (
 
-      <div  class="container">
+      <div  className="container">
 
-       <form>
+       <form  onSubmit={this.onLoginClick}>
          
          <label>Email</label>
          <input  value={this.props.email}
@@ -70,8 +75,7 @@ render() {
 
 
          <button
-         value={this}
-         onClick={this.onLoginClick.bind(this)}
+         type="submit"
          >Submit</button>
 
 
