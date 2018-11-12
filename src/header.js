@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import './component/header.css'
+import ReactDOM from 'react-dom';
 
 class Header extends React.Component{
 
@@ -43,15 +45,17 @@ class Header extends React.Component{
 
         return(
 
-            <header class="container">
-                       
-                <div  float="right"  textAlign='right'>
-                <a>SignIn</a>
-                <a>Developer</a>
-                <a>Help</a>
+          <div>
+                      
+  <ul>
+  <li><a href="#contact">Help</a></li>
+  <li><a href="#news">Developer</a></li>
+  <li><a href="#home">SignUp</a></li>
+  
+</ul>
                 
         </div>
-            </header>
+            
         );
     }
 }
