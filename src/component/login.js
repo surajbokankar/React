@@ -46,7 +46,7 @@ class Login extends React.Component{
 
 
         <div>
-            {this.state.isSignUp?<SignUp/>:<LoginCom/>}
+            {this.state.isSignUp?<SignUp/>:<LoginCom type={this.state.isSignUp}/>}
         </div>
          
 
