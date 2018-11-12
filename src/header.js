@@ -3,6 +3,16 @@ import logo from './logo.svg';
 import './App.css';
 import './component/header.css'
 import ReactDOM from 'react-dom';
+import Login from './component/login';
+import Home from './home';
+
+import {
+  Route,
+  Link,
+  Switch,
+  Redirect
+} from 'react-router-dom';
+import { Hook } from 'tapable';
 
 class Header extends React.Component{
 
@@ -50,11 +60,23 @@ class Header extends React.Component{
   <ul>
   <li><a href="#contact">Help</a></li>
   <li><a href="#news">Developer</a></li>
-  <li><a href="#home">SignUp</a></li>
+  <li><Link to="/login">SignUp</Link></li>
+  <li><Link to="/">Home</Link></li>
   
 </ul>
-                
+
+
+<div >
+          <Switch>
+          <Route exact path="/"  component={Home} />
+          <Route exact path="/login"  component={Login} />
+            
+            <Redirect to="/" />
+          </Switch>
         </div>
+
+
+                </div>
             
         );
     }

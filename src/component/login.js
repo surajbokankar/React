@@ -5,78 +5,16 @@ import header from '../header';
 
 class Login extends React.Component{
     
-    state={
-        response:null,
-        errorResponse:null
-    };
     
-      constructor(props) {
-        super(props);
-        this.state = {email: '',password:''};
-    
-        this.onEmailChange = this.onEmailChange.bind(this);
-        this.onPasswordChange=this.onPasswordChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-      }
-    
-      onEmailChange(event) {
-        this.setState({email: event.target.value});
-      }
-    
-      onPasswordChange(event){
-        this.setState({password: event.target.value});
-      }
-    
-      handleSubmit(event) {
-        var emailVal=this.state.email;
-        var passVal=this.state.password;
-        if((emailVal!=null&&emailVal.length>0)&&(passVal!=null&&passVal.length>0)){
-           const  url="http://192.168.8.105:4000/login";
-         const bodyFormData = new FormData();
-         bodyFormData.append('email',emailVal);
-         bodyFormData.append('password',passVal);
 
 
-         
-
-         var headers= {
-            'Content-Type': 'application/json',
-            'api_env': 'qa' 
-        }
-
-
-         axios.post(url,bodyFormData,{"headers":headers}).
-          then((res)=>{
-            this.setState({response:"User Logged In Successfully..!!"});
-          }).catch((error) => {
-            // Error
-            if (error.response) {
-                // The request was made and the server responded with a status code
-                 console.log(error.response.data);
-                 console.log(error.response.status);
-                 console.log(error.response.headers);
-                 const data = JSON.stringify(error.response.data.message);
-                 this.setState({errorResponse:data});
-                
-               } else if (error.request) {
-                // The request was made but no response was received
-                // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-                // http.ClientRequest in node.js
-                console.log("Request ="+error.message);
-            } else {
-                // Something happened in setting up the request that triggered an Error
-                console.log('Error', error.message);
-            }
-            console.log(error.config);
-        });
-    
-        }else{
-          alert("Please fill details");
-        }
-        
-        event.preventDefault();
-      }
-
+  constructor(props) {
+    super(props);
+    this.state={
+      isSignUp:false,
+      isForGotPass:false
+    } 
+  }
 
 
 
@@ -107,10 +45,120 @@ class Login extends React.Component{
         return(
 
 
-            <form>
+        <div>
+            {this.state.isSignUp?<SignUp/>:<LoginCom/>}
+        </div>
+         
+
+          
+
+        
+
+        );
+    }
+}
 
 
-       <label>Email</label>
+
+class SignUp extends React.Component{
+  render(){
+    return(<div>
+      SignUp
+    </div>);
+  };
+}
+
+class LoginCom extends React.Component{
+
+
+  state={
+    response:null,
+    errorResponse:null
+};
+
+  constructor(props) {
+    super(props);
+    this.state = {email: '',password:''};
+
+    this.onEmailChange = this.onEmailChange.bind(this);
+    this.onPasswordChange=this.onPasswordChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.isSignUp=false;
+
+    this.onForgotPasswordClick = this.onForgotPasswordClick.bind(this);
+
+
+  }
+
+  onEmailChange(event) {
+    this.setState({email: event.target.value});
+  }
+
+  onPasswordChange(event){
+    this.setState({password: event.target.value});
+  }
+
+  onForgotPasswordClick(event){
+    this.setState({isSignUp:true})
+          }
+
+  handleSubmit(event) {
+    var emailVal=this.state.email;
+    var passVal=this.state.password;
+    if((emailVal!=null&&emailVal.length>0)&&(passVal!=null&&passVal.length>0)){
+       const  url="http://192.168.8.105:4000/login";
+     const bodyFormData = new FormData();
+     bodyFormData.append('email',emailVal);
+     bodyFormData.append('password',passVal);
+
+
+     
+
+     var headers= {
+        'Content-Type': 'application/json',
+        'api_env': 'qa' 
+    }
+
+
+     axios.post(url,bodyFormData,{"headers":headers}).
+      then((res)=>{
+        this.setState({response:"User Logged In Successfully..!!"});
+        this.setState({errorResponse:null});
+      }).catch((error) => {
+        // Error
+        if (error.response) {
+            // The request was made and the server responded with a status code
+             console.log(error.response.data);
+             console.log(error.response.status);
+             console.log(error.response.headers);
+             const data = JSON.stringify(error.response.data.message);
+             this.setState({errorResponse:data});
+            
+           } else if (error.request) {
+            // The request was made but no response was received
+            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
+            // http.ClientRequest in node.js
+            console.log("Request ="+error.message);
+        } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error', error.message);
+        }
+        console.log(error.config);
+    });
+
+    }else{
+      alert("Please fill details");
+    }
+    
+    event.preventDefault();
+  }
+
+  render(){
+    return(<div>
+       <form>
+         
+         <label>Email</label>
         
          <input  type="text" value={this.state.email}
            onChange={this.onEmailChange
@@ -128,6 +176,12 @@ class Login extends React.Component{
          <div className='button__container'>
          <button className='button' onClick={this.handleSubmit}>Click Me</button>
 
+          <br/>
+
+          <h4 textColor='grey' onClick={this.onForgotPasswordClick}>Forgot Password?</h4>
+          <h4 color='blue'>SignUp</h4>
+          
+
 
           
           {this.state.errorResponse?<p>{
@@ -140,10 +194,14 @@ class Login extends React.Component{
       </div>
       
     </form>
-
-        );
-    }
+    </div>);
+  }
 }
+
+
+
+
+
 
 export default Login;
 

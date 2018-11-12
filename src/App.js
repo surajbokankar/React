@@ -7,6 +7,8 @@ import {BrowserRouter as Router,Switch,Route, Link } from 'react-router-dom';
 import User from './component/user';
 import axios from 'axios';
 import Login from './component/login';
+import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 class App extends Component {
 
@@ -40,7 +42,11 @@ render() {
 
       <div>
        
+
+       <BrowserRouter>
        <Header/>
+    </BrowserRouter>
+       
      
 
       </div>

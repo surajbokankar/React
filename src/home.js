@@ -79,7 +79,7 @@ render(){
         return(
 
             <div  class="left" style={letterStyle}>
-                <h1>Home</h1>
+                <h4>Home</h4>
 </div>
 
         );
