@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import header from '../header';
 import ReactDom from 'react-dom';
+import './login.css';
 
 
 class Login extends React.Component{
@@ -14,19 +15,27 @@ class Login extends React.Component{
     errorResponse:null
 };
 
+ 
+
+
+
      
 
   constructor(props) {
     super(props);
-    this.state = {email: '',password:''};
+    this.state = {email: '',password:'', isSignUp:false, isForGot:false, isLogin:true};
 
     this.onEmailChange = this.onEmailChange.bind(this);
     this.onPasswordChange=this.onPasswordChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
-    this.isSignUp=false;
+    
 
     this.onForgotPasswordClick = this.onForgotPasswordClick.bind(this);
+    this.onSignUpTextClick=this.onSignUpTextClick.bind(this);
+    this.onLoginTextClick=this.onLoginTextClick.bind(this);
+    this.onSingUpSubmit=this.onSingUpSubmit.bind(this);
+    this.onForgotSubmit=this.onForgotSubmit.bind(this);
 
 
   }
@@ -40,17 +49,108 @@ class Login extends React.Component{
   }
 
   onForgotPasswordClick(event){
-
-    var x = ReactDom.findDOMNode(this.refs.login);
-    var y=ReactDom.findDOMNode(this.refs.signup);
-    if (x.style.display === "none") {
-        x.style.display = "block";
-        y.style.display=  "none";
-    } else {
-        x.style.display = "none";
+    this.setState({isLogin:false,isSignUp:false,isForGot:true});
+    this.setState({errorResponse:null,response:null});
     }
-      
+
+  onSignUpTextClick(event){
+        this.setState({isLogin:false,isSignUp:true,isForGot:false});
+        this.setState({errorResponse:null,response:null});
   }
+
+  onLoginTextClick(event){
+        this.setState({isLogin:true,isSignUp:false,isForGot:false});
+        this.setState({errorResponse:null,response:null});
+      }
+
+
+ onSingUpSubmit(event){
+      event.preventDefault();
+      var emailVal=this.state.email;
+      if(emailVal!=null&&emailVal.length>0){
+        const  url="http://192.168.8.105:4000/signup";
+        const bodyFormData = new FormData();
+        bodyFormData.append('email',emailVal);
+        var headers= {
+          'Content-Type': 'application/json',
+          'api_env': 'qa' 
+      }
+
+      axios.post(url,bodyFormData,{"headers":headers}).
+      then((res)=>{
+        this.setState({response:res.data.message});
+        this.setState({errorResponse:null});
+      }).catch((error) => {
+        // Error
+        this.setState({errorResponse:null});
+        if (error.response) {
+            // The request was made and the server responded with a status code
+             console.log(error.response.data);
+             console.log(error.response.status);
+             console.log(error.response.headers);
+             const data = JSON.stringify(error.response.data.message);
+             this.setState({errorResponse:data});
+            
+           } else if (error.request) {
+             console.log("Request ="+error.message);
+        } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error', error.message);
+        }
+        console.log(error.config);
+    });
+
+      }else{
+        alert("Please Enter Email..!!");
+      }
+    }
+
+    onForgotSubmit(event){
+      event.preventDefault();
+      var emailVal=this.state.email;
+      if(emailVal!=null&&emailVal.length>0){
+        const  url="http://192.168.8.105:4000/forgot_password";
+
+        const bodyFormData = new FormData();
+        bodyFormData.append('email',emailVal);
+
+
+        var headers= {
+          'Content-Type': 'application/json',
+          'api_env': 'qa' 
+        }
+
+        axios.post(url,bodyFormData,{"headers":headers}).
+      then((res)=>{
+        this.setState({response:res.data.message});
+        this.setState({errorResponse:null});
+      }).catch((error) => {
+        // Error
+        this.setState({errorResponse:null});
+        if (error.response) {
+            // The request was made and the server responded with a status code
+             console.log(error.response.data);
+             console.log(error.response.status);
+             console.log(error.response.headers);
+             const data = JSON.stringify(error.response.data.message);
+             this.setState({errorResponse:data});
+            
+           } else if (error.request) {
+             console.log("Request ="+error.message);
+        } else {
+            // Something happened in setting up the request that triggered an Error
+            console.log('Error', error.message);
+        }
+        console.log(error.config);
+    });
+
+      }else{
+        alert("Please Enter Email..!!");
+      }
+    }
+
+
+
 
   handleSubmit(event) {
     var emailVal=this.state.email;
@@ -78,7 +178,6 @@ class Login extends React.Component{
         // Error
         this.setState({errorResponse:null});
         if (error.response) {
-            // The request was made and the server responded with a status code
              console.log(error.response.data);
              console.log(error.response.status);
              console.log(error.response.headers);
@@ -86,12 +185,8 @@ class Login extends React.Component{
              this.setState({errorResponse:data});
             
            } else if (error.request) {
-            // The request was made but no response was received
-            // `error.request` is an instance of XMLHttpRequest in the browser and an instance of
-            // http.ClientRequest in node.js
             console.log("Request ="+error.message);
         } else {
-            // Something happened in setting up the request that triggered an Error
             console.log('Error', error.message);
         }
         console.log(error.config);
@@ -107,12 +202,34 @@ class Login extends React.Component{
 
 
     render(){
+
+
+
+      var hiddenStyle={
+        display:'none'
+      }
+      var show={
+        display:'block'
+      }
+
+      var horizontal={
+          color: "black",
+          textalign: "center",
+          padding: "14px",
+          textdecoration: "none",
+          float:"right",
+          paddingRight:"200px"    
+      }
+      
+
         var style=  {
             "list-style-type": "none",
-            fontSize: 20,
+            fontSize: 16,
             textAlign: "left",
             float:"left",
-            width: "40%"
+            width: "jsutify",
+            margin: "10px",
+            textColor:"black"
         }    
           
       
@@ -133,57 +250,109 @@ class Login extends React.Component{
         return(
 
 
-          <div>
+          <div >
 
-          <div ref="login">
-          <form>
+
+         {this.state.isLogin? <div ref="login">
+          <form >
              
              <label>Email</label>
-            
-             <input  type="text" value={this.state.email}
+            <input  type="text" value={this.state.email}
+             placeholder="Enter Email"
                onChange={this.onEmailChange
              }/>
     
              <br/>
     
              <label>Password</label>
-             <input  type="text" value={this.state.password}
+             <input  type="password" value={this.state.password}
+             placeholder="Enter Password"
                onChange={this.onPasswordChange
              }/>
     
              <br/>
     
-             <div className='button__container'>
-             <button className='button' onClick={this.handleSubmit}>Click Me</button>
+             <div className='button'>
+             <button className='button' onClick={this.handleSubmit}>Login</button>
     
               <br/>
-    
-              <h4 textColor='grey' onClick={this.onForgotPasswordClick}>Forgot Password?</h4>
-              <h4 color='blue'>SignUp</h4>
-              
-    
-    
-              
-              {this.state.errorResponse?<p>{
+
+
+
+              <div style={horizontal} className='rows'>
+              <label textColor='grey'  style={style} 
+                onClick={this.onForgotPasswordClick}>Forgot Password?</label>
+              <label color='blue' style={style}   onClick={this.onSignUpTextClick}>SignUp</label>
+              </div>
+
+                  {this.state.errorResponse?<p>{
                   this.state.errorResponse}</p>:<p></p>}
     
-    {this.state.response?<p>{
+                  {this.state.response?<p>{
                   this.state.response}</p>:<p></p>} 
     
     
           </div>
           
         </form>
-          </div>
+          </div>:null}
+        
+
+         {
+         this.state.isSignUp?<div ref="signup" >
+                    
+                    <h2>SignUp</h2>
+
+              <input  type="text" value={this.state.email}
+               placeholder="Email"
+               onChange={this.onEmailChange
+                }/>
+
+               <button className='button' onClick={this.onSingUpSubmit}>Submit</button>
+                
+                <div style={horizontal} className='rows'>
+                <label textColor='grey' style={style} onClick={this.onForgotPasswordClick}>Forgot Password?</label>
+                <label color='blue'   style={style}    onClick={this.onLoginTextClick}>Login</label>
+                </div>
+
+                {this.state.errorResponse?<p>{
+                  this.state.errorResponse}</p>:<p></p>}
     
-    
-          <div ref="signup" display="block">
-          SignUp
-          </div>
-    
-          <div ref="forgot" display="block">
-          Forgot
-          </div>
+                  {this.state.response?<p>{
+                  this.state.response}</p>:<p></p>} 
+
+         </div>:null
+           }
+          
+            {
+              this.state.isForGot?<div ref="forgot" >
+                
+                <h2>Forgot Password</h2>
+
+             <input  type="text" value={this.state.email}
+               placeholder="Email"
+               onChange={this.onEmailChange
+             }/>
+
+             <button className='button' onClick={this.onForgotSubmit}>Submit</button>
+             <div style={horizontal} className='rows'>
+                <label textColor='grey' style={style} onClick={this.onSignUpTextClick}>SignUp</label>
+                <label color='blue'   style={style}  onClick={this.onLoginTextClick}>Login</label>
+                </div>
+
+
+{this.state.errorResponse?<p>{
+  this.state.errorResponse}</p>:<p></p>}
+
+  {this.state.response?<p>{
+  this.state.response}</p>:<p></p>} 
+
+             </div>:null
+            }
+
+
+
+          
            
         </div>
          
@@ -195,6 +364,10 @@ class Login extends React.Component{
         );
     }
 }
+
+
+
+
 
 
 
