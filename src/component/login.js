@@ -3,6 +3,11 @@ import axios from 'axios';
 import header from '../header';
 import ReactDom from 'react-dom';
 import './login.css';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
+import Input from '@material-ui/core/Input';
+import Modal from '@material-ui/core/Modal';
+
 
 
 class Login extends React.Component{
@@ -13,7 +18,7 @@ class Login extends React.Component{
   state={
     response:null,
     errorResponse:null
-};
+  };
 
  
 
@@ -36,6 +41,7 @@ class Login extends React.Component{
     this.onLoginTextClick=this.onLoginTextClick.bind(this);
     this.onSingUpSubmit=this.onSingUpSubmit.bind(this);
     this.onForgotSubmit=this.onForgotSubmit.bind(this);
+    
 
 
   }
@@ -201,6 +207,7 @@ class Login extends React.Component{
 
 
 
+
     render(){
 
 
@@ -232,6 +239,29 @@ class Login extends React.Component{
             textColor:"black"
         }    
           
+        var loginText={
+          color:'#2196F3',
+          textAlign:'center',
+          paddingLeft : 10,
+          paddingRight : 10,
+          backgroundcolor:'#2196F3',
+          width: '80%'
+      }
+
+      var loginScreenButton={
+        marginRight:20,
+        marginLeft:20,
+        marginTop:20,
+        paddingTop:10,
+        paddingBottom:10,
+        backgroundColor:'#2196F3',
+        borderRadius:6,
+        borderWidth: 0.5,
+        borderColor: '#fff',
+        color:'#ffffff',
+        width: '80%',
+        float:'center'
+      }
       
         var button__container ={
           margintop: '200px',
@@ -256,26 +286,55 @@ class Login extends React.Component{
          {this.state.isLogin? <div ref="login">
           <form >
              
-             <label>Email</label>
-            <input  type="text" value={this.state.email}
+             {/* <label>Email</label> */}
+            {/* <input  type="text" value={this.state.email}
              placeholder="Enter Email"
                onChange={this.onEmailChange
-             }/>
+             }/> */}
+
+          
+<TextField
+          id="search"
+          label="Email"
+          type="search"
+          style={{ marginRight: 20,
+          marginLeft:20,
+          width:"80%"
+        }}
+        value={this.state.email}
+          margin="normal"
+          onChange={this.onEmailChange}
+          
+        />
+
     
              <br/>
     
-             <label>Password</label>
-             <input  type="password" value={this.state.password}
-             placeholder="Enter Password"
-               onChange={this.onPasswordChange
-             }/>
-    
-             <br/>
+             
+
+<TextField
+          id="search"
+          label="Password"
+          type="search"
+          style={{ marginRight: 20,
+          marginLeft:20,
+          width:"80%"
+        }}
+        value={this.state.password}
+          margin="normal"
+          onChange={this.onPasswordChange}
+          
+        />
+
+      <br/>
     
              <div className='button'>
-             <button className='button' onClick={this.handleSubmit}>Login</button>
-    
-              <br/>
+             <Button variant="contained" 
+             onClick={this.handleSubmit}
+             style={loginScreenButton}>
+        Login
+      </Button>
+            <br/>
 
 
 
@@ -300,27 +359,49 @@ class Login extends React.Component{
 
          {
          this.state.isSignUp?<div ref="signup" >
-                    
-                    <h2>SignUp</h2>
 
-              <input  type="text" value={this.state.email}
-               placeholder="Email"
-               onChange={this.onEmailChange
-                }/>
+         
+<h2>SignUp</h2>
 
-               <button className='button' onClick={this.onSingUpSubmit}>Submit</button>
-                
-                <div style={horizontal} className='rows'>
-                <label textColor='grey' style={style} onClick={this.onForgotPasswordClick}>Forgot Password?</label>
-                <label color='blue'   style={style}    onClick={this.onLoginTextClick}>Login</label>
-                </div>
+{/* <input  type="text" value={this.state.email}
+ placeholder="Email"
+ onChange={this.onEmailChange
+  }/> */}
 
-                {this.state.errorResponse?<p>{
-                  this.state.errorResponse}</p>:<p></p>}
-    
-                  {this.state.response?<p>{
-                  this.state.response}</p>:<p></p>} 
+<TextField
+          id="search"
+          label="Email"
+          type="search"
+          style={{ marginRight: 20,
+          marginLeft:20,
+          width:"80%"
+        }}
+        value={this.state.email}
+          margin="normal"
+          onChange={this.onEmailChange}
+          
+        />
 
+ {/* <button className='button' onClick={this.onSingUpSubmit}>Submit</button> */}
+
+ <Button variant="contained" 
+             onClick={this.onSingUpSubmit}
+             style={loginScreenButton}>
+        Submit
+      </Button>
+  
+  <div style={horizontal} className='rows'>
+  <label textColor='grey' style={style} onClick={this.onForgotPasswordClick}>Forgot Password?</label>
+  <label color='blue'   style={style}    onClick={this.onLoginTextClick}>Login</label>
+  </div>
+
+  {this.state.errorResponse?<p>{
+    this.state.errorResponse}</p>:<p></p>}
+
+    {this.state.response?<p>{
+    this.state.response}</p>:<p></p>} 
+        
+  
          </div>:null
            }
           
@@ -329,12 +410,33 @@ class Login extends React.Component{
                 
                 <h2>Forgot Password</h2>
 
-             <input  type="text" value={this.state.email}
+             {/* <input  type="text" value={this.state.email}
                placeholder="Email"
                onChange={this.onEmailChange
-             }/>
+             }/> */}
 
-             <button className='button' onClick={this.onForgotSubmit}>Submit</button>
+<TextField
+          id="search"
+          label="Email"
+          type="search"
+          style={{ marginRight: 20,
+          marginLeft:20,
+          width:"80%"
+        }}
+        value={this.state.email}
+          margin="normal"
+          onChange={this.onEmailChange}
+          
+        />
+
+             {/* <button className='button' onClick={this.onForgotSubmit}>Submit</button> */}
+
+             <Button variant="contained" 
+             onClick={this.onForgotSubmit}
+             style={loginScreenButton}>
+        Submit
+      </Button>
+
              <div style={horizontal} className='rows'>
                 <label textColor='grey' style={style} onClick={this.onSignUpTextClick}>SignUp</label>
                 <label color='blue'   style={style}  onClick={this.onLoginTextClick}>Login</label>
