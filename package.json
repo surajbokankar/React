@@ -5,12 +5,13 @@
   "dependencies": {
     "@material-ui/core": "^3.3.2",
     "axios": "^0.18.0",
+    "muicss": "^0.9.41",
+    "proxy": "http://localhost:5000/",
     "react": "^16.6.0",
     "react-dom": "^16.6.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.1",
-    "proxy": "http://localhost:5000/"
+    "react-scripts": "2.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
