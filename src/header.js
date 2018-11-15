@@ -6,6 +6,8 @@ import ReactDOM from "react-dom";
 import Login from "./component/login";
 import Home from "./home";
 import Picker from "./component/container/picker";
+import Counter from './component/help'
+import AppBar from '@material-ui/core/AppBar';
 
 import { Route, Link, Switch, Redirect } from "react-router-dom";
 import { Hook } from "tapable";
@@ -44,9 +46,10 @@ class Header extends React.Component {
 
     return (
       <div>
+        <div>
         <ul>
           <li>
-            <a href="#contact">Help</a>
+          <Link to="/counter">Help</Link>
           </li>
           <li>
             <Link to="/developer">Developer</Link>
@@ -64,11 +67,13 @@ class Header extends React.Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/developer" component={Picker} />
-
+            <Route exact path="/counter" component={Counter} />
             <Redirect to="/" />
           </Switch>
         </div>
       </div>
+        </div>
+      
     );
   }
 }

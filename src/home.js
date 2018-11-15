@@ -51,7 +51,7 @@ render(){
             textAlign: "center",
             float:"left",
             width: "30%"
-        };
+                };
 
         var buttonStyle={
         aligncontent: 'inherit',

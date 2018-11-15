@@ -1,8 +1,10 @@
-import Button from 'muicss/lib/react/button';
 import Select from 'muicss/lib/react/select';
 import Option from 'muicss/lib/react/option';
 import Appbar from 'muicss/lib/react/appbar';
 import React, { Component } from "react";
+
+import Button from "@material-ui/core/Button"; 
+
 
 
 
@@ -71,8 +73,7 @@ export default class LoginScreen extends React.Component {
       
       </Appbar>
       <div>
-          <Button>button</Button>
-          <Button color="primary">button</Button>
+          <Button color="primary">Click</Button>
         </div>
         
       </div>
