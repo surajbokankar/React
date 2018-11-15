@@ -5,6 +5,7 @@ import './component/header.css'
 import ReactDOM from 'react-dom';
 import Login from './component/login';
 import Home from './home';
+import List from './component/List';
 
 import {
   Route,
@@ -59,7 +60,7 @@ class Header extends React.Component{
                       
   <ul>
   <li><a href="#contact">Help</a></li>
-  <li><a href="#news">Developer</a></li>
+  <li><Link to="/list">List</Link></li>
   <li><Link to="/login">SignUp</Link></li>
   <li><Link to="/">Home</Link></li>
   
@@ -70,6 +71,7 @@ class Header extends React.Component{
           <Switch>
           <Route exact path="/"  component={Home} />
           <Route exact path="/login"  component={Login} />
+          <Route exact path="/list"  component={List} />
             
             <Redirect to="/" />
           </Switch>
