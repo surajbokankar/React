@@ -2,6 +2,9 @@ import React from "react";
 import index from "jss";
 import { connect } from 'react-redux';
 import Constant from '../common/Constant';
+import Footer from './footer';
+
+
 
 const style = {
   display: "block",
@@ -16,7 +19,11 @@ function Lister(props) {
     console.log('state',props)
   return (
     <div>
+      
+
+      <form onSubmit={props.onButtonClick}>
       <input type="text" value={props.initialText}  onChange={props.inputChange}/>
+      </form>
 
       <ul style={style}>
         {
@@ -29,6 +36,12 @@ function Lister(props) {
             })
         }
       </ul>
+         
+      
+
+   
+
+      
       <button onClick={props.onButtonClick}>Submit</button>
     </div>
   );
@@ -50,6 +63,7 @@ function mapToDispatchState(dispatch){
             dispatch(action);
         },
         onButtonClick : (eve) =>{
+            console.log('submit dispatcher');
          eve.preventDefault();
          const action={
              type:Constant.ADD_ITEMS
