@@ -1,6 +1,7 @@
 import React from "react";
 import index from "jss";
 import { connect } from 'react-redux';
+import Constant from '../common/Constant';
 
 const style = {
   display: "block",
@@ -20,7 +21,11 @@ function Lister(props) {
       <ul style={style}>
         {
             props.listItem.map((item,index)=>{
-                return <li key={index}> {item} </li> 
+                return <li key={index}
+                       onClick={()=>props.onItemDelete(index)}
+                >
+                {item} 
+                </li> 
             })
         }
       </ul>
@@ -40,16 +45,22 @@ function mapToDispatchState(dispatch){
       return({
         inputChange: (event)=>{
             const action={
-                type:"OnChang",text:event.target.value
+                type:Constant.ON_CHNAGE,text:event.target.value
             }
             dispatch(action);
         },
         onButtonClick : (eve) =>{
          eve.preventDefault();
          const action={
-             type:'ADD_ITEMS'
+             type:Constant.ADD_ITEMS
          }
          dispatch(action);
+        },
+        onItemDelete:(index)=>{
+            const action={
+                type:Constant.ITEM_DELETE,index:index
+            }
+            dispatch(action);
         }
     
       })

@@ -7,6 +7,8 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Input from '@material-ui/core/Input';
 import Modal from '@material-ui/core/Modal';
+import Contant from '../common/Constant';
+import Constant from '../common/Constant';
 
 
 
@@ -74,7 +76,7 @@ class Login extends React.Component{
       event.preventDefault();
       var emailVal=this.state.email;
       if(emailVal!=null&&emailVal.length>0){
-        const  url="http://192.168.8.105:4000/signup";
+        const  url=Constant.BASE_URL+"signup";
         const bodyFormData = new FormData();
         bodyFormData.append('email',emailVal);
         var headers= {
@@ -115,7 +117,7 @@ class Login extends React.Component{
       event.preventDefault();
       var emailVal=this.state.email;
       if(emailVal!=null&&emailVal.length>0){
-        const  url="http://192.168.8.105:4000/forgot_password";
+        const  url=Constant.BASE_URL+"forgot_password";
 
         const bodyFormData = new FormData();
         bodyFormData.append('email',emailVal);
@@ -162,7 +164,7 @@ class Login extends React.Component{
     var emailVal=this.state.email;
     var passVal=this.state.password;
     if((emailVal!=null&&emailVal.length>0)&&(passVal!=null&&passVal.length>0)){
-       const  url="http://192.168.8.105:4000/login";
+       const  url=Constant.BASE_URL+"login";
      const bodyFormData = new FormData();
      bodyFormData.append('email',emailVal);
      bodyFormData.append('password',passVal);
