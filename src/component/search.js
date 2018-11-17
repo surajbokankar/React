@@ -3,8 +3,11 @@ import Input from "@material-ui/core/Input";
 import TextField from "@material-ui/core/TextField";
 import { connect } from "react-redux";
 import constant from "../common/Constant";
+import Api from './Api';
+
 
 function Search(props) {
+  console.log('Response',props.repos);
   return (
     <div>
       <h1>Repo Search</h1>
@@ -16,7 +19,7 @@ function Search(props) {
                 margin="normal"
               /> */}
 
-      <form onSubmit={props.handleSubmit}>
+      <form onSubmit={(evt)=>{props.handleSubmit(evt,props.inputSearchValue)}}>
         <input
           type="text"
           value={props.inputSearchValue}
@@ -28,6 +31,7 @@ function Search(props) {
         {props.repos.map((data, index) => {
           return (
             <li key={index}>
+           
               <a href={data.html_url}>{data.name}</a>
             </li>
           );
@@ -56,25 +60,12 @@ const mapStateToDispatch = dispatch => {
       };
       dispatch(action);
     },
-    handleSubmit: event => {
+    handleSubmit: (event,query) => {
       //To Prevent page getting refreshed..
       event.preventDefault();
+      Api.getReposAxios(dispatch,query);
 
-      let query = "utils";
-
-      fetch(`https://api.github.com/search/repositories?q=${query}`)
-        .then(response => {
-          console.log("response", response);
-          return response.json();
-        })
-        .then(data => {
-          console.log("do we have data?", data);
-          const action = {
-            type: constant.ON_REPO,
-            repos: data.items
-          };
-          dispatch(action);
-        });
+      
     }
   };
 };

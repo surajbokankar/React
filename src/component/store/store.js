@@ -4,7 +4,7 @@ import constant from '../../common/Constant';
 
 const initialState={
     repos:[],
-    inputSearchValue:'Dummy'
+    inputSearchValue:''
 }
 
 
