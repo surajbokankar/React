@@ -3,6 +3,14 @@ import Search from "./search";
 import store from './store/store';
 
 class SearchView extends React.Component {
+
+constructor(props){
+  super(props);
+  this.state={
+    data:store.getState()
+  }
+}
+
   render() {
     return (
       <div>
@@ -11,7 +19,14 @@ class SearchView extends React.Component {
       </div>
     );
   }
+
+  componentDidMount() {
+
+    console.log('component called',this.state.data);
+  }
 }
+
+
 
 export default SearchView;
    
