@@ -9,7 +9,7 @@ const initialText={
 }
 
 
-const reducer = (state =initialText , action) =>{
+const reducer = (state =initialState , action) =>{
     console.log('reducer running',action);
 
     switch(action.type){

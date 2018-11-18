@@ -10,13 +10,13 @@ import TextField from '@material-ui/core/TextField/TextField';
 
 
 function counter(props){
-    console.log('render props',props);
+    console.log('render props',props.count);
     return(
         <div>
           <h1> Simple Redux Example..</h1>
-          <p>Count: {props.count}</p>
-          {/* <Button onClick={props.onIncremetClick}>Increment</Button>
-          <Button onClick={props.onDecrementClick}>Decrement</Button> */}
+          <p>Count: {props.count} </p>
+          <Button onClick={props.onIncremetClick}>Increment</Button>
+          <Button onClick={props.onDecrementClick}>Decrement</Button>
 
           <input
            type="text"
@@ -31,7 +31,6 @@ function counter(props){
 
 
 function masStateToProps(state){
-    console.log('masStateToProps',state);
     return{
         count:state.count
     }
@@ -87,4 +86,4 @@ return{
 
 
 
-export default connect(mapStateToInput,mapToDispatchText)(counter);
+export default connect(masStateToProps,masToDispatch)(counter);
