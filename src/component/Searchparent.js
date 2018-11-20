@@ -6,9 +6,7 @@ class SearchView extends React.Component {
 
 constructor(props){
   super(props);
-  this.state={
-    data:store.getState()
-  }
+  this.state=store.getState();
 }
 
   render() {
@@ -21,8 +19,8 @@ constructor(props){
   }
 
   componentDidMount() {
-
-    console.log('component called',this.state.data);
+     
+    console.log('component called',this.state);
   }
 }
 

@@ -8,9 +8,9 @@ const initialState={
 }
 
 
-const reducer=(state = initialState, action)=>{
+const reducer=(state=initialState, action)=>{
 
-
+     console.log('reducer state', state);
     switch(action.type){
         case constant.ON_CHANGE:
         return Object.assign({},state,{inputSearchValue:action.text});
@@ -32,6 +32,6 @@ const reducer=(state = initialState, action)=>{
 
 
 
-const store=createStore(reducer);
+const store=createStore(reducer,window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
 export default store;

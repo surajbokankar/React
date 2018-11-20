@@ -266,9 +266,9 @@ class Login extends React.Component {
              }/> */}
 
               <TextField
-                id="search"
+                id="email"
                 label="Email"
-                type="search"
+                type="email"
                 style={{ marginRight: 20, marginLeft: 20, width: "80%" }}
                 value={this.state.email}
                 margin="normal"
