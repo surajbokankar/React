@@ -118,3 +118,814 @@ span.psw {
        width: 100%;
     }
 }
+
+@media screen and (max-width: 756px){
+    .topCardStyle {
+        width: auto;
+        height: 338px;
+        border-radius: 6px;
+        background-color:grey;
+        box-shadow: 0px 0px 20px 10px rgba(0, 0, 0, 0.04);
+        display: flex;
+        justify-content: space-around;
+        margin-left: 8%;
+        margin-right: 8%;
+        margin-top: 38px;
+        padding: 12px;
+      }
+}
+
+
+.noData {
+    text-align: center;
+    color: black;
+    font-size: 20px;
+    height: 200px;
+    width: 200px;
+     place-content: center;
+      line-height: 100%;
+      align-items: center;
+      display: contents;
+      padding-top: 10%;
+      line-height: 200px;
+      margin-left: 16px;
+    >  div {
+      vertical-align: -webkit-baseline-middle;
+  
+      >  img {
+        height: 80px;
+        width: 80px;
+        float: left;
+        margin-top: 50%;
+       }
+  
+    } 
+     > label{
+      text-align: center;
+      line-height: 100px;
+      margin-top: 20px;
+     }
+  }
+  
+  .solid {
+    stroke: solid;
+  }
+  
+  .dashed {
+    stroke-dasharray: 0, 0;
+    color: blueviolet;
+  }
+  .tick line {
+    opacity: 0.5;
+    stroke-dasharray: 0, 0;
+  }
+  
+  .reviewLabel {
+    margin-left: 28px;
+    margin-right: 22px;
+    color: #4d4f5c;
+    font-family: latobold;
+    font-size: 25px;
+  }
+  
+  .reviewRightCard {
+    width: 100%;
+    height: 338px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+    display: -ms-flexbox;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    margin-top: 38px;
+  }
+  
+  .reviewLeftCard {
+    width: 338px;
+    height: 338px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+    display: -ms-flexbox;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    margin-top: 38px;
+    margin-right: 24px;
+  }
+  
+  #listContainer {
+    display: flex; /* add -webkit and -ms prefixes yourself */
+    flex-direction: column;
+    width: 20%;
+    float: right;
+    background-color: #81b71a;
+    color: #ffffff;
+    height: -webkit-fill-available;
+  }
+  
+  .ratingAvg {
+    text-align: -webkit-match-parent;
+    display: flex;
+    height: auto;
+  }
+  
+  .dropDownStyle {
+    width: 70px;
+    height: 22px;
+    border-radius: 4px;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.05);
+    border: solid 1px #d7dae2;
+    background-color: #ffffff;
+    font-size: 12px;
+    margin-left: 17px;
+  }
+  
+  .displayRatingLabel {
+    font-size: 15px;
+    height: 18px;
+    color: #4a4a4a;
+    margin-right: 16px;
+    margin-left: 22px;
+    font-family: lato;
+  }
+  
+  .reviewLeftCardLabel {
+    font-size: 25px;
+    color: #4d4f5c;
+    font-family: latobold;
+    margin-left: 16px;
+    margin-top: 12px;
+  }
+  
+  .reviewLeftCardRatingLabel {
+    width: 28px;
+    height: 24px;
+    font-family: latobold;
+    font-size: 20px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    text-align: left;
+    color: #9013fe;
+    float: right;
+  }
+  
+  .ratingStarGridBox {
+    margin-left: 16px;
+    margin-top: 19px;
+    display: grid;
+  }
+  
+  .ratingStarValueLabel {
+    width: 26px;
+    height: 27px;
+    font-family: lato;
+    font-size: 22px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.23;
+    letter-spacing: normal;
+    text-align: left;
+    color: #4a4a4a;
+    float: right;
+  }
+  
+  .ratingAllButton {
+    width: 70px;
+    height: 32px;
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 3px 0px;
+    border: 1px solid rgb(215, 218, 226);
+    background-color: rgb(255, 255, 255);
+    font-size: 16px;
+    margin-left: 17px;
+  }
+  .ripple {
+    background-position: center;
+    transition: background 0.8s;
+  }
+  .ripple:hover {
+    background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%)
+      center/15000%;
+  }
+  .ripple:active {
+    background-color: #6eb9f7;
+    background-size: 100%;
+    transition: background 0s;
+  }
+  
+  .filterContainer {
+    height: 65px;
+    border-radius: 6px;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    margin-top: 36px;
+    display: flex;
+    transform-style: preserve-3d;
+    align-items: center;
+    background: white;
+    place-content: center;
+  }
+  
+  .noDataContainer {
+    width: 100%;
+    height: 88vh;
+  }
+  
+  .page-break {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    background: #3dc1ff;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+    color: white;
+    justify-content: space-evenly;
+    vertical-align: middle;
+    width: 20vw;
+    justify-content: space-evenly;
+    padding-left: 3%;
+  }
+  .menu-item-div {
+    background: white;
+    height: 40px;
+  }
+  
+  .leftList {
+    width: 100%;
+    display: flex;
+    height: 20vw;
+    padding-left: 20px;
+    > div > div > img {
+      height: 80px;
+      width: 80px;
+      float: left;
+      margin-top: 12px;
+      border-radius: 4px;
+      border: 1px solid #dddddd;
+    }
+  }
+  
+  .middleContentLabel {
+    width: 46px;
+    font-family: lato;
+    font-size: 3.3vw;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.2;
+    letter-spacing: normal;
+    color: rgb(144, 19, 254);
+  }
+  
+  .middleContentText {
+    width: 5.8%;
+    height: 19px;
+    font-family: latonormal;
+    font-size: 1.6vw;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.19;
+    letter-spacing: normal;
+    text-align: left;
+    color: rgb(100, 100, 100);
+  }
+  
+  .titleStyle {
+    margin-top: 12px;
+    margin-left: 26px;
+    font-family: latobold;
+    font-size: 26px;
+    color: rgb(74, 74, 74);
+    text-align: left;
+  }
+  
+  .cat {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    background-color: #a3a3a3;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    line-height: 200px;
+    cursor: pointer;
+  }
+  
+  .selected {
+    opacity: 0.5;
+  }
+  
+  .ratingValueLabel {
+    height: 22px;
+    color: rgb(74, 74, 74);
+    font-family: lato;
+    font-size: 18px;
+    opacity: 0.7;
+  }
+  .displayRatingBoxDiv {
+    margin-top: 18px;
+    display: grid;
+  }
+  
+  .reviewListLabel {
+    height: 18px;
+    font-family: latoitalic;
+    color: #b4b4b4;
+  }
+  
+  .highLight {
+    background: #000000;
+  }
+  .noHighLight {
+    background: none;
+  }
+  
+  .reviewItemStyle {
+    width: 100%;
+    padding-right: 20px;
+    margin-left: 12px;
+  }
+  
+  .reviewListItem {
+    width: 100%;
+    > img {
+      height: 30px;
+      width: 30px;
+      float: left;
+      border-radius: 50px;
+      border: 1px solid beige;
+      margin-left: 12px;
+    }
+  }
+  .reviewItemLableTitle {
+    margin-left: 20px;
+    margin-right: 22px;
+    color: rgb(61, 193, 255);
+    font-family: latobold;
+    font-size: 14px;
+  }
+  
+  .reviewItemHoursTitle {
+    color: rgb(180, 180, 180);
+    height: 15px;
+    font-family: latoitalic;
+  }
+  .reviewItemContetTitle {
+    margin-left: 20px;
+    color: rgb(144, 144, 144);
+    font-size: 12px;
+    font-family: lato;
+    line-height: 1.83;
+    margin-top: 16px;
+    margin-bottom: 26px;
+  }
+  
+  .analyticsTitle {
+    margin-bottom: 16px;
+    margin-left: 30px;
+    > label {
+      margin-top: 12px;
+      margin-left: 26px;
+      font-family: latobold;
+      font-size: 26px;
+      color: rgb(74, 74, 74);
+      text-align: left;
+    }
+  }
+  
+  .middleView {
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    vertical-align: middle;
+    height: auto;
+    /* height: 100%; */
+    /* float: left; */
+    /* display: table; */
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 7%;
+    width: 100%;
+    float: left;
+  }
+  .middleViewStyle {
+    margin-right: 20.6%;
+    text-align: -webkit-left;
+    display: grid;
+    /* margin-top: 38px; */
+    flex-wrap: wrap;
+    /* height: auto; */
+  }
+  
+  .mediaCard {
+    margin-bottom: 1.2%;
+    margin-left: 0.6%;
+    margin-right: 0.6%;
+    cursor: pointer;
+    
+    > div {
+      width: 100%;
+      border-radius: 6px;
+      background-color: rgb(255, 255, 255);
+      box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      outline: none;
+      margin-bottom: 2%;
+    }
+    
+    
+  }
+
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    transition: .3s ease;
+  }
+  .mediaCard:hover {
+    opacity: 0.8; 
+  }
+  
+  .cardTitleDiv {
+    display: grid;
+    flex-wrap: wrap;
+    > label {
+      margin-top: 12px;
+      margin-left: 20px;
+      font-family: latobold;
+      font-size: 20px;
+      color: rgb(74, 74, 74);
+      text-align: left;
+    }
+  }
+  
+  .topCardStyle {
+    width: auto;
+    height: 200px;
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-around;
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 38px;
+    padding: 12px;
+    cursor: pointer;
+  }
+  
+  .barChart {
+    width: 100%;
+    height: 224px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 50;
+    margin-left: 50;
+    margin-right: 10;
+  }
+  .Views {
+    width: 69px;
+    height: 30px;
+    font-family: latobold;
+    font-size: 25px;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 0.68;
+    letter-spacing: normal;
+    text-align: left;
+    color: #4d4f5c;
+    margin-left: 16px;
+    margin-top: 16px;
+    margin-bottom: 30px;
+  }
+  
+  #waveformchart svg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  #waveformchart {
+    width: 100%;
+    height: 224px;
+    background-color: #333;
+    position: relative;
+  }
+  .axis {
+    fill: none;
+    stroke: rgb(133, 122, 122);
+    shape-rendering: crispEdges;
+  }
+  .axis text {
+    font: 7px lato;
+    fill: #43425d;
+    stroke: none;
+    font-weight: normal;
+  }
+  .axis line {
+    stroke: #ccc;
+  }
+  .axis path {
+    stroke: black;
+  }
+  #waveformchart .bar {
+    -ms-transform: scale(1, 1); /* IE 9 */
+    -webkit-transform: scale(1, 1); /* Safari */
+    transform: scale(1, 1);
+  }
+  #waveformchart .bar:hover {
+    height: 100%;
+    -ms-transform: scale(2, 100); /* IE 9 */
+    -webkit-transform: scale(2, 100); /* Safari */
+    transform: scale(4, 100);
+    -ms-transform-origin: 50% 50%; /* IE 9 */
+    -webkit-transform-origin: 50% 50%; /* Chrome, Safari, Opera */
+    transform-origin: 50% 50%;
+  }
+  .bar:hover {
+    fill: rgb(83, 78, 78);
+  }
+  .dot:hover {
+    fill: rgb(83, 78, 78);
+  }
+  .area:hover {
+    fill: rgb(83, 78, 78);
+  }
+  .line {
+    padding: 10px;
+  }
+  .line:hover {
+    stroke: #e55;
+  }
+  .arc path:hover {
+    fill: #e55;
+  }
+  .arc text {
+    font: 11px sans-serif;
+    fill: #000;
+    stroke: none;
+    font-weight: bold;
+  }
+  .tooltip {
+    padding: 4px;
+    border-radius: 6px;
+    background-color: white;
+    opacity: 0.8;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.06);
+    border: solid 1px #d7dae2;
+  }
+  .brush .extent {
+    stroke: #000;
+    fill-opacity: 0.125;
+    shape-rendering: crispEdges;
+  }
+  .brush .background {
+    fill: #ddd;
+  }
+  .svg-container {
+    display: inline-block;
+    overflow: hidden;
+    padding-bottom: 100%;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+  }
+  .review-card {
+    width: 100%;
+    border-radius: 6px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.4);
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    border-radius: 6px;
+  }
+  
+  .mainAnalyticsList {
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-top: 20px;
+  }
+  
+  .ratingTextLabel {
+    position: static;
+    font-size: 2vw;
+    align-content: center;
+    height: auto;
+    width: 50%;
+    text-align: -webkit-left;
+  }
+  
+  .ratingCountLabel {
+    height: auto;
+    font-size: 4.6vw;
+    float: left;
+    width: 50%;
+    font-family: latobold;
+    /* font-weight: bold; */
+    margin-left: 1%;
+    text-align: -webkit-center;
+    color: #f0f0f0;
+  }
+  
+  .createdDiv {
+    height: fit-content;
+    display: grid;
+    flex-wrap: wrap;
+  }
+  
+  .createdLabel {
+    width: 100%;
+    height: 1.9%;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+    font-size: 1.6vw;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.19;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ebebeb;
+  }
+  
+  .createdValueLable {
+    width: 100%;
+    height: 1.9%;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0);
+    font-size: 1.6vw;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.19;
+    letter-spacing: normal;
+    text-align: left;
+    color: #ffffff;
+  }
+  
+  .showBy {
+    color: rgb(93, 93, 93);
+    font-family: lato;
+    font-size: 18px;
+    font-style: normal;
+    line-height: 1.27;
+  }
+  
+  .details-top-section {
+    display: grid;
+    margin-left: 8%;
+    margin-right: 8%;
+    .analytics-title {
+      font-family: latobold;
+      font-size: 24px;
+      line-height: 1.21;
+      text-align: left;
+      color: rgb(51, 51, 51);
+      margin-bottom: 40px;
+      margin-top: 24px;
+    }
+    > div {
+      display: flex;
+  
+      > img {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        width: 110px;
+        height: 110px;
+        border-radius: 20px;
+        border: 1px solid rgba(155, 155, 155, 0.5);
+        float: left;
+      }
+  
+      > div {
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        display: grid;
+        margin-left: 16px;
+  
+        .title-label {
+          font-size: 26px;
+          font-family: latobold;
+          color: rgb(0, 0, 0);
+        }
+        .title-sub {
+          font-size: 18px;
+          font-family: lato;
+          color: rgb(155, 155, 155);
+        }
+        .title-version-lable {
+          font-size: 18px;
+          font-family: latobold;
+          color: rgb(93, 93, 93);
+        }
+      }
+    }
+  }
+  
+  .filterRightViews {
+    float: right;
+    margin-right: 20px;
+    display: -webkit-inline-box;
+  }
+  
+  .shadowOfCard {
+    box-shadow: rgba(0, 0, 0, 0.44) 0px 2px 6px 0px;
+  }
+  
+  .ratingBox {
+    display: flex;
+    /* margin-left: 60px; */
+    margin-left: 8%;
+    margin-right: 8%;
+    width: auto;
+  }
+  
+  .lineText {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    margin-top: 18px;
+  }
+  
+  .reusable-dropdown {
+    width: auto;
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+  }
+  
+  .DateSpan {
+    background: white;
+    color: #3dc1ff;
+    font-family: latobold;
+    font-size: 16px;
+  }
+  .NoDataViews{
+     height: auto;
+     width: 100%;
+     > div > img {
+      height: 80px;
+      width: 80px;
+      float: left;
+      margin-top: 12px;
+     }
+  }
+  
+
+
+  @media (min-width: 360px) {
+    .middleDiv{
+      margin-right: 0.2%;
+      text-align: -webkit-left;
+      display: flex;
+      flex-flow: column wrap;
+    }  
+  }
+  
+
+
+ 
+
+  @media (max-width: 400px) {
+    .middleDiv{
+      margin-right: 0.4%;
+    text-align: -webkit-left;
+    display: flex;
+    flex-flow: column wrap;
+  }
+  }
+  @media (min-width: 401px) and (max-width: 800px) {
+    .middleDiv{
+      margin-right: 10%;
+    text-align: -webkit-left;
+    display: flex;
+    flex-flow: column wrap;
+  }
+  }
+  @media (min-width: 801px) {
+    /* html { background: blue; } */
+
+    .middleDiv{
+        margin-right: 10%;
+      text-align: -webkit-left;
+      display: flex;
+      flex-flow: column wrap;
+    }
+  }
+
+  
+
+ 

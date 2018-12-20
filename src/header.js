@@ -5,7 +5,8 @@ import './App.css';
 import ReactDOM from 'react-dom';
 import Login from './component/login';
 import Home from './home';
-import SearchView from './component/Searchparent';
+import SearchParntView from './component/Searchparent';
+import Details from './component/AnalyticsDetail'
 
 import {
   Route,
@@ -60,7 +61,7 @@ class Header extends React.Component{
                       
   <ul>
   <li><a href="#contact">Help</a></li>
-  <li><a href="dev">Developer</a></li>
+  <li><Link to="/dev">Developer</Link></li>
   <li><Link to="/login">SignUp</Link></li>
   <li><Link to="/">Home</Link></li>
   
@@ -71,7 +72,8 @@ class Header extends React.Component{
           <Switch>
           <Route exact path="/"  component={Home} />
           <Route exact path="/login"  component={Login} />
-          <Route exact path="/dev"  component={SearchView} />
+          <Route exact path="/dev"  component={SearchParntView} />
+          <Route exact path="/details"  component={Details} />
             
             <Redirect to="/" />
           </Switch>

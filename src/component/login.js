@@ -8,11 +8,27 @@ import TextField from "@material-ui/core/TextField";
 import Input from "@material-ui/core/Input";
 import Modal from "@material-ui/core/Modal";
 import constant from '../common/Constant';
+import Joyride from 'react-joyride';
 
 class Login extends React.Component {
   state = {
     response: null,
     errorResponse: null
+  };
+  newstate = {
+    run: false,
+    steps: [
+      {
+        target: '.my-first-step',
+        content: 'This if my awesome feature!',
+        placement: 'bottom',
+      },
+      {
+        target: '.my-other-step',
+        content: 'This if my awesome feature!',
+        placement: 'bottom',
+      }
+    ]
   };
 
   constructor(props) {
@@ -22,7 +38,8 @@ class Login extends React.Component {
       password: "",
       isSignUp: false,
       isForGot: false,
-      isLogin: true
+      isLogin: true,
+      
     };
 
     this.onEmailChange = this.onEmailChange.bind(this);
@@ -34,7 +51,17 @@ class Login extends React.Component {
     this.onLoginTextClick = this.onLoginTextClick.bind(this);
     this.onSingUpSubmit = this.onSingUpSubmit.bind(this);
     this.onForgotSubmit = this.onForgotSubmit.bind(this);
+    this.callback = this.callback.bind(this);
   }
+
+  componentDidMount(){
+    this.setState({ run: true });
+  }
+
+
+  callback = (data) => {
+    const { action, index, type } = data;
+  };
 
   onEmailChange(event) {
     this.setState({ email: event.target.value });
@@ -191,6 +218,9 @@ class Login extends React.Component {
   }
 
   render() {
+
+    const { steps, run } = this.newstate;
+
     var hiddenStyle = {
       display: "none"
     };
@@ -254,10 +284,15 @@ class Login extends React.Component {
       width: "200px"
     };
 
+
+    
+
     return (
       <div>
         {this.state.isLogin ? (
-          <div ref="login">
+          <div ref="login" className="topCardStyle">
+
+          
             <form>
               {/* <label>Email</label> */}
               {/* <input  type="text" value={this.state.email}
